@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graduación de Nataly Solis | Invitación Especial</title>
+    <title>Invitación Especial | Ing. Nataly Solis</title>
     <!-- Carga de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Carga de Google Fonts: Cormorant Garamond (Serif elegante) y Plus Jakarta Sans (Sans-serif limpia) -->
+    <!-- Carga de Google Fonts: Cormorant Garamond (Serif editorial) y Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- Carga de Canvas Confetti para el toque festivo al abrir -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Carga de Canvas Confetti -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     
     <script>
@@ -29,12 +29,16 @@
                         'rose-dark': '#B56B7E',
                         gold: '#C5A059',
                         'gold-light': '#DFC794',
+                        'gold-dark': '#9E7B36',
                         charcoal: '#262928'
                     },
                     animation: {
                         'float': 'float 4s ease-in-out infinite',
                         'fade-up': 'fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards',
                         'pulse-ring': 'pulseRing 2.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite',
+                        'shimmer': 'shimmer 3.5s linear infinite',
+                        'twinkle': 'twinkle 3s ease-in-out infinite',
+                        'sweep': 'sweep 5s ease-in-out infinite',
                     },
                     keyframes: {
                         float: {
@@ -48,6 +52,18 @@
                         pulseRing: {
                             '0%': { transform: 'scale(0.8)', opacity: '0.8' },
                             '80%, 100%': { transform: 'scale(2.2)', opacity: '0' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '200% center' },
+                            '100%': { backgroundPosition: '-200% center' },
+                        },
+                        twinkle: {
+                            '0%, 100%': { opacity: '0.2', transform: 'scale(0.75) rotate(0deg)' },
+                            '50%': { opacity: '1', transform: 'scale(1.25) rotate(180deg)' },
+                        },
+                        sweep: {
+                            '0%': { transform: 'translateX(-150%) skewX(-25deg)' },
+                            '45%, 100%': { transform: 'translateX(250%) skewX(-25deg)' },
                         }
                     }
                 }
@@ -56,14 +72,61 @@
     </script>
 
     <style>
-        /* Estilos personalizados complementarios */
         body {
             background-color: #FAF8F5;
+            background-image: 
+                radial-gradient(circle at 12% 12%, rgba(212, 140, 158, 0.22) 0%, transparent 45%),
+                radial-gradient(circle at 88% 20%, rgba(197, 160, 89, 0.22) 0%, transparent 40%),
+                radial-gradient(circle at 50% 88%, rgba(212, 140, 158, 0.18) 0%, transparent 50%);
             color: #262928;
             overflow-x: hidden;
         }
 
-        /* Patrón vectorial estilizado simulando calles para la tarjeta de mapa */
+        /* Tarjeta con acabado perlado y brillo satinado */
+        .glam-card {
+            background: linear-gradient(145deg, #ffffff 0%, #FFFDF9 50%, #FDF4F6 100%);
+            box-shadow: 
+                0 25px 75px -15px rgba(181, 107, 126, 0.32),
+                0 0 40px rgba(197, 160, 89, 0.18),
+                inset 0 0 30px rgba(255, 255, 255, 0.9);
+        }
+
+        /* Destello metálico en el título */
+        .gold-rose-gradient-text {
+            background: linear-gradient(120deg, #B56B7E 0%, #DFC794 25%, #C5A059 50%, #DFC794 75%, #B56B7E 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 4.5s linear infinite;
+            filter: drop-shadow(0 2px 10px rgba(197, 160, 89, 0.22));
+        }
+
+        /* Reflejo de luz cruzando elementos */
+        .glass-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .glass-shine::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 45%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.65), transparent);
+            animation: sweep 5.5s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        /* Destellos tipo estrella */
+        .sparkle {
+            position: absolute;
+            pointer-events: none;
+            color: #C5A059;
+            filter: drop-shadow(0 0 6px rgba(223, 199, 148, 0.9));
+        }
+
+        /* Patrón vectorial estilizado simulando calles */
         .map-pattern {
             background-color: #FDF2F4;
             background-image: 
@@ -71,7 +134,7 @@
                 linear-gradient(150deg, #ffffff 12%, transparent 12.5%, transparent 87%, #ffffff 87.5%, #ffffff),
                 linear-gradient(30deg, #ffffff 12%, transparent 12.5%, transparent 87%, #ffffff 87.5%, #ffffff),
                 linear-gradient(150deg, #ffffff 12%, transparent 12.5%, transparent 87%, #ffffff 87.5%, #ffffff),
-                linear-gradient(60deg, rgba(197, 160, 89, 0.16) 25%, transparent 25.5%, transparent 75%, rgba(197, 160, 89, 0.16) 75%, rgba(197, 160, 89, 0.16));
+                linear-gradient(60deg, rgba(197, 160, 89, 0.18) 25%, transparent 25.5%, transparent 75%, rgba(197, 160, 89, 0.18) 75%, rgba(197, 160, 89, 0.18));
             background-size: 80px 140px;
             background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0;
         }
@@ -85,204 +148,249 @@
 <body class="font-sans antialiased selection:bg-rose selection:text-white min-h-screen flex flex-col justify-between relative">
 
     <!-- =====================================================================
-         CONFIGURACIÓN DEL EVENTO
+         CONFIGURACIÓN DEL EVENTO (12 de Diciembre de 2026, 5:30 PM)
          ===================================================================== -->
     <script>
         const CONFIG = {
             GOOGLE_MAPS_URL: "https://maps.app.goo.gl/DouRW4DzV7v4uVGCA", 
-            EVENT_DATE: new Date(2026, 11, 5, 17, 30, 0)
+            EVENT_DATE: new Date(2026, 11, 12, 17, 30, 0)
         };
     </script>
 
-    <!-- Decoración superior sutil -->
-    <div class="w-full h-2 bg-gradient-to-r from-rose via-gold to-rose"></div>
+    <!-- Barra superior metálica con brillo -->
+    <div class="w-full h-2.5 bg-gradient-to-r from-rose-dark via-gold-light to-rose-dark shadow-md glass-shine"></div>
 
     <!-- Contenedor Principal -->
     <main class="flex-grow flex items-center justify-center px-4 py-10 sm:py-16">
-        <div class="w-full max-w-2xl bg-white rounded-3xl shadow-[0_20px_60px_-15px_rgba(212,140,158,0.22)] border border-gold/30 overflow-hidden relative">
-            
-            <!-- Marco interior decorativo -->
-            <div class="m-3 sm:m-5 border border-gold/25 rounded-2xl p-6 sm:p-12 text-center relative">
+        <!-- Borde exterior luminoso degradado oro-rosa -->
+        <div class="w-full max-w-2xl p-[2px] rounded-[2.1rem] bg-gradient-to-br from-gold via-rose-light to-gold shadow-[0_20px_60px_rgba(197,160,89,0.28)]">
+            <div class="w-full glam-card rounded-[2rem] overflow-hidden relative">
                 
-                <!-- Esquinas ornamentales minimalistas -->
-                <div class="absolute top-3 left-3 w-6 h-6 border-t-2 border-l-2 border-gold/60 rounded-tl-lg"></div>
-                <div class="absolute top-3 right-3 w-6 h-6 border-t-2 border-r-2 border-gold/60 rounded-tr-lg"></div>
-                <div class="absolute bottom-3 left-3 w-6 h-6 border-b-2 border-l-2 border-gold/60 rounded-bl-lg"></div>
-                <div class="absolute bottom-3 right-3 w-6 h-6 border-b-2 border-r-2 border-gold/60 rounded-br-lg"></div>
+                <!-- Resplandores ambientales internos -->
+                <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[28rem] h-56 bg-gradient-to-b from-gold/25 via-rose/15 to-transparent blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[26rem] h-48 bg-gradient-to-t from-gold/20 via-rose/10 to-transparent blur-3xl pointer-events-none"></div>
 
-                <!-- Icono Birrete de Graduación Animado -->
-                <div class="opacity-0 animate-fade-up flex justify-center mb-5">
-                    <div class="w-16 h-16 rounded-full bg-rose-light flex items-center justify-center border border-gold/35 shadow-inner animate-float cursor-pointer" onclick="launchConfetti()" title="¡Haz clic para celebrar!">
-                        <svg class="w-8 h-8 text-rose-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-                        </svg>
-                    </div>
-                </div>
+                <!-- Destellos flotantes decorativos -->
+                <svg class="sparkle w-5 h-5 top-12 left-10 animate-twinkle" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z"/>
+                </svg>
+                <svg class="sparkle w-4 h-4 top-20 right-12 animate-twinkle" style="animation-delay: 1.1s;" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z"/>
+                </svg>
+                <svg class="sparkle w-3.5 h-3.5 top-64 left-8 animate-twinkle" style="animation-delay: 2s;" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z"/>
+                </svg>
+                <svg class="sparkle w-4 h-4 top-72 right-9 animate-twinkle" style="animation-delay: 0.6s;" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z"/>
+                </svg>
 
-                <!-- Etiqueta Superior -->
-                <p class="opacity-0 animate-fade-up delay-100 uppercase tracking-[0.25em] text-xs font-semibold text-gold mb-3">
-                    Celebración de Graduación
-                </p>
+                <!-- Marco interior doble estilo alta papelería -->
+                <div class="m-3 sm:m-5 border border-gold/50 rounded-[1.5rem] p-6 sm:p-12 text-center relative">
+                    <div class="m-1 border border-rose/20 rounded-[1.25rem] p-2 sm:p-4">
+                    
+                        <!-- Esquinas ornamentales dobles con brillo -->
+                        <div class="absolute top-3 left-3 w-9 h-9 border-t-2 border-l-2 border-gold rounded-tl-xl drop-shadow-[0_0_4px_rgba(197,160,89,0.5)]"></div>
+                        <div class="absolute top-3 right-3 w-9 h-9 border-t-2 border-r-2 border-gold rounded-tr-xl drop-shadow-[0_0_4px_rgba(197,160,89,0.5)]"></div>
+                        <div class="absolute bottom-3 left-3 w-9 h-9 border-b-2 border-l-2 border-gold rounded-bl-xl drop-shadow-[0_0_4px_rgba(197,160,89,0.5)]"></div>
+                        <div class="absolute bottom-3 right-3 w-9 h-9 border-b-2 border-r-2 border-gold rounded-br-xl drop-shadow-[0_0_4px_rgba(197,160,89,0.5)]"></div>
 
-                <!-- Título Principal -->
-                <h1 class="opacity-0 animate-fade-up delay-200 font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-rose-dark leading-tight mb-4">
-                    Nataly Solis
-                </h1>
-                
-                <p class="opacity-0 animate-fade-up delay-200 font-serif italic text-xl sm:text-2xl text-charcoal/85 max-w-md mx-auto leading-relaxed mb-6">
-                    te invita a celebrar su logro más reciente
-                </p>
-
-                
-                <!-- Tarjeta limpia para imagen completa y más pequeña -->
-               <div class="opacity-0 animate-fade-up delay-300 flex justify-center">
-                <div class="w-44 sm:w-52 rounded-2xl overflow-hidden border-2 border-gold/40 shadow-md bg-cream-dark">
-                   <img src="./Natito.jpeg" 
-                    alt="Nataly Solis" 
-                     class="w-full h-auto object-contain block" />
-                </div>
-               </div>
-
-                <!-- Divisor elegante -->
-                <div class="opacity-0 animate-fade-up delay-300 flex items-center justify-center gap-3 my-7">
-                    <span class="h-[1px] w-12 sm:w-20 bg-gradient-to-r from-transparent to-gold"></span>
-                    <span class="w-2 h-2 rotate-45 bg-gold"></span>
-                    <span class="h-[1px] w-12 sm:w-20 bg-gradient-to-l from-transparent to-gold"></span>
-                </div>
-
-                <!-- Fecha y Hora Destacada -->
-                <div class="opacity-0 animate-fade-up delay-300 bg-cream rounded-2xl p-6 border border-cream-dark mb-8">
-                    <p class="text-xs uppercase tracking-[0.2em] text-rose-dark font-semibold mb-2">Fecha y Hora</p>
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-5 text-charcoal">
-                        <div class="flex items-center gap-2">
-                            <span class="font-serif text-3xl sm:text-4xl font-bold text-rose-dark">5</span>
-                            <div class="text-left leading-tight">
-                                <span class="block text-sm font-semibold uppercase tracking-wider">Diciembre</span>
-                                <span class="block text-xs text-charcoal/60">2026</span>
+                        <!-- Pase Exclusivo para 2 Personas con reflejo satinado -->
+                        <div class="opacity-0 animate-fade-up flex justify-center mb-6">
+                            <div class="glass-shine inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-gradient-to-r from-rose-light via-white to-rose-light border border-gold shadow-[0_6px_20px_rgba(197,160,89,0.28)]">
+                                <span class="text-gold text-xs animate-pulse">✦</span>
+                                <span class="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.22em] text-rose-dark">
+                                    Pase Exclusivo • Válido para 2 Personas
+                                </span>
+                                <span class="text-gold text-xs animate-pulse">✦</span>
                             </div>
                         </div>
-                        <span class="hidden sm:inline-block h-8 w-[1px] bg-gold/40"></span>
-                        <div class="flex items-center gap-2 mt-1 sm:mt-0">
-                            <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span class="font-serif text-2xl sm:text-3xl font-semibold text-rose-dark">5:30 PM</span>
-                        </div>
-                    </div>
-                    <p class="mt-4 text-sm sm:text-base text-charcoal/80 font-normal">
-                        “Te esperamos a las 5:30 pm para compartir un lindo momento”
-                    </p>
-                </div>
 
-                <!-- Contador Regresivo en Tiempo Real -->
-                <div class="opacity-0 animate-fade-up delay-300 mb-9">
-                    <p class="text-xs uppercase tracking-[0.2em] text-charcoal/60 font-medium mb-4">Faltan exactamente</p>
-                    <div id="countdown-container" class="grid grid-cols-4 gap-2 sm:gap-4 max-w-md mx-auto">
-                        <!-- Días -->
-                        <div class="bg-rose text-white rounded-2xl py-3 sm:py-4 px-2 shadow-md border border-rose-dark/20">
-                            <span id="days" class="block font-serif text-2xl sm:text-4xl font-bold tracking-tight">00</span>
-                            <span class="block text-[10px] sm:text-xs uppercase tracking-widest text-rose-light mt-1">Días</span>
-                        </div>
-                        <!-- Horas -->
-                        <div class="bg-rose text-white rounded-2xl py-3 sm:py-4 px-2 shadow-md border border-rose-dark/20">
-                            <span id="hours" class="block font-serif text-2xl sm:text-4xl font-bold tracking-tight">00</span>
-                            <span class="block text-[10px] sm:text-xs uppercase tracking-widest text-rose-light mt-1">Horas</span>
-                        </div>
-                        <!-- Minutos -->
-                        <div class="bg-rose text-white rounded-2xl py-3 sm:py-4 px-2 shadow-md border border-rose-dark/20">
-                            <span id="minutes" class="block font-serif text-2xl sm:text-4xl font-bold tracking-tight">00</span>
-                            <span class="block text-[10px] sm:text-xs uppercase tracking-widest text-rose-light mt-1">Min</span>
-                        </div>
-                        <!-- Segundos -->
-                        <div class="bg-rose-dark text-white rounded-2xl py-3 sm:py-4 px-2 shadow-md border border-gold/40">
-                            <span id="seconds" class="block font-serif text-2xl sm:text-4xl font-bold text-gold-light tracking-tight">00</span>
-                            <span class="block text-[10px] sm:text-xs uppercase tracking-widest text-white/90 mt-1">Seg</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sección de Ubicación con Tarjeta Visual tipo Mapa Interactivo -->
-                <div class="opacity-0 animate-fade-up delay-400 text-left">
-                    <div class="flex items-center justify-between mb-3 px-1">
-                        <div>
-                            <p class="text-xs uppercase tracking-[0.2em] text-gold font-semibold">Ubicación</p>
-                            <h2 class="font-serif text-2xl font-bold text-rose-dark">En casa de mis padres</h2>
-                        </div>
-                        <span class="inline-flex items-center gap-1 text-xs font-medium text-rose-dark bg-rose-light px-3 py-1 rounded-full border border-rose/20">
-                            <span class="w-2 h-2 rounded-full bg-rose-dark animate-pulse"></span>
-                            Recepción
-                        </span>
-                    </div>
-
-                    <!-- Tarjeta de Mapa Clickeable -->
-                    <a id="map-card-link" href="https://maps.app.goo.gl/DouRW4DzV7v4uVGCA" target="_blank" rel="noopener noreferrer" 
-                       class="group block relative w-full h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-rose/25 hover:border-gold transition-all duration-300 shadow-sm hover:shadow-xl">
-                        
-                        <!-- Fondo estilizado de mapa vectorial -->
-                        <div class="absolute inset-0 map-pattern transition-transform duration-700 group-hover:scale-105"></div>
-                        
-                        <!-- Líneas decorativas simulando avenidas principales -->
-                        <svg class="absolute inset-0 w-full h-full opacity-40" viewBox="0 0 400 200" preserveAspectRatio="none">
-                            <path d="M-10,150 Q120,130 220,90 T410,40" fill="none" stroke="#C5A059" stroke-width="6" />
-                            <path d="M80,-10 L160,210" fill="none" stroke="#ffffff" stroke-width="8" />
-                            <path d="M270,-10 L230,210" fill="none" stroke="#ffffff" stroke-width="6" />
-                        </svg>
-
-                        <!-- Pin Central Animado -->
-                        <div class="absolute inset-0 flex flex-col items-center justify-center pb-4">
-                            <div class="relative flex items-center justify-center">
-                                <!-- Onda expansiva -->
-                                <span class="absolute w-12 h-12 rounded-full bg-rose/40 animate-pulse-ring"></span>
-                                <!-- Icono Pin -->
-                                <div class="relative z-10 bg-rose-dark text-white p-3 rounded-full shadow-lg border-2 border-white group-hover:bg-gold group-hover:scale-110 transition-all duration-300">
-                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        <!-- Icono Birrete de Graduación con halo radiante -->
+                        <div class="opacity-0 animate-fade-up delay-100 flex justify-center mb-5">
+                            <div class="relative group cursor-pointer" onclick="launchConfetti()" title="¡Haz clic para celebrar!">
+                                <div class="absolute -inset-2 rounded-full bg-gradient-to-tr from-rose via-gold-light to-rose opacity-60 blur-md group-hover:opacity-90 transition"></div>
+                                <div class="relative w-16 h-16 rounded-full bg-gradient-to-b from-white via-rose-light to-cream flex items-center justify-center border-2 border-gold/70 shadow-lg animate-float">
+                                    <svg class="w-8 h-8 text-rose-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                        <path d="M6 12v5c3 3 9 3 12 0v-5"/>
                                     </svg>
                                 </div>
                             </div>
-                            <span class="mt-2 bg-white/95 backdrop-blur-sm text-rose-dark text-xs font-semibold px-3 py-1 rounded-full shadow-sm border border-gold/35">
-                                Casa de la Familia Solis
-                            </span>
                         </div>
 
-                        <!-- Barra inferior interactiva dentro del mapa -->
-                        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-rose-dark/95 via-rose-dark/75 to-transparent p-3 sm:p-4 flex items-center justify-between text-white">
-                            <span class="text-xs sm:text-sm font-medium flex items-center gap-1.5">
-                                <svg class="w-4 h-4 text-gold-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                </svg>
-                                Toca el mapa para ver la ruta exacta
-                            </span>
-                            <span class="bg-white text-rose-dark group-hover:bg-gold group-hover:text-white transition-colors text-xs font-semibold px-3 py-1.5 rounded-lg shadow flex items-center gap-1">
-                                Abrir en Google Maps
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                                </svg>
-                            </span>
+                        <!-- Etiqueta Superior -->
+                        <p class="opacity-0 animate-fade-up delay-100 uppercase tracking-[0.32em] text-xs font-semibold text-gold-dark mb-2">
+                            Celebración de Graduación
+                        </p>
+
+                        <!-- Título Principal con brillo metálico animándose -->
+                        <h1 class="opacity-0 animate-fade-up delay-200 font-serif text-5xl sm:text-6xl md:text-7xl font-bold gold-rose-gradient-text leading-tight mb-3">
+                            Ing. Nataly Solis
+                        </h1>
+                        
+                        <p class="opacity-0 animate-fade-up delay-200 font-serif italic text-xl sm:text-2xl text-charcoal/85 max-w-md mx-auto leading-relaxed mb-7">
+                            te invita a celebrar su logro más reciente
+                        </p>
+
+                        <!-- Retrato enmarcado con aura dorada (sin reflejo blanco encima) -->
+                        <div class="opacity-0 animate-fade-up delay-300 flex justify-center">
+                            <div class="relative group">
+                                <div class="absolute -inset-2 rounded-[1.5rem] bg-gradient-to-tr from-gold via-rose to-gold-light opacity-45 blur-md group-hover:opacity-75 transition duration-500"></div>
+                                <div class="relative p-1.5 rounded-[1.35rem] bg-gradient-to-tr from-gold via-gold-light to-rose shadow-[0_14px_34px_-6px_rgba(197,160,89,0.55)]">
+                                    <div class="w-44 sm:w-52 rounded-2xl overflow-hidden bg-cream-dark">
+                                        <img src="./Natito.jpeg" 
+                                             alt="Ing. Nataly Solis" 
+                                             class="w-full h-auto object-contain block transition-transform duration-700 group-hover:scale-105" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </a>
+
+                        <!-- Divisor ornamental brillante -->
+                        <div class="opacity-0 animate-fade-up delay-300 flex items-center justify-center gap-3 my-8">
+                            <span class="h-[1px] w-14 sm:w-24 bg-gradient-to-r from-transparent via-gold to-gold"></span>
+                            <span class="w-2 h-2 rotate-45 border border-gold bg-rose-light shadow-[0_0_8px_rgba(197,160,89,0.7)]"></span>
+                            <span class="w-2.5 h-2.5 rotate-45 bg-gold shadow-[0_0_10px_rgba(197,160,89,0.9)]"></span>
+                            <span class="w-2 h-2 rotate-45 border border-gold bg-rose-light shadow-[0_0_8px_rgba(197,160,89,0.7)]"></span>
+                            <span class="h-[1px] w-14 sm:w-24 bg-gradient-to-l from-transparent via-gold to-gold"></span>
+                        </div>
+
+                        <!-- Fecha, Hora y Recordatorio de Pase Doble -->
+                        <div class="opacity-0 animate-fade-up delay-300 bg-gradient-to-b from-white via-cream to-rose-light/60 rounded-2xl p-6 sm:p-7 border border-gold/45 shadow-[0_8px_25px_-10px_rgba(197,160,89,0.3)] mb-8">
+                            <p class="text-xs uppercase tracking-[0.25em] text-rose-dark font-semibold mb-3">Fecha y Hora</p>
+                            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-charcoal">
+                                <div class="flex items-center gap-2.5">
+                                    <span class="font-serif text-4xl sm:text-5xl font-bold text-rose-dark drop-shadow-sm">12</span>
+                                    <div class="text-left leading-tight">
+                                        <span class="block text-sm font-bold uppercase tracking-widest text-charcoal">Diciembre</span>
+                                        <span class="block text-xs font-semibold text-gold-dark">2026</span>
+                                    </div>
+                                </div>
+                                <span class="hidden sm:inline-block h-10 w-[1px] bg-gradient-to-b from-transparent via-gold to-transparent"></span>
+                                <div class="flex items-center gap-2 mt-1 sm:mt-0">
+                                    <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    <span class="font-serif text-3xl sm:text-4xl font-semibold text-rose-dark">5:30 PM</span>
+                                </div>
+                            </div>
+                            <p class="mt-4 font-serif italic text-lg sm:text-xl text-charcoal/85">
+                                “Te esperamos a las 5:30 pm para compartir un lindo momento”
+                            </p>
+                            <div class="mt-4 pt-3 border-t border-gold/25 inline-flex items-center gap-2 text-xs font-medium text-rose-dark">
+                                <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+                                </svg>
+                                <span>Invitación personal válida para <strong>2 personas</strong></span>
+                            </div>
+                        </div>
+
+                        <!-- Contador Regresivo Glamuroso con reflejo -->
+                        <div class="opacity-0 animate-fade-up delay-300 mb-9">
+                            <p class="text-xs uppercase tracking-[0.25em] text-gold-dark font-semibold mb-4">Cuenta regresiva</p>
+                            <div id="countdown-container" class="grid grid-cols-4 gap-2.5 sm:gap-4 max-w-md mx-auto">
+                                <!-- Días -->
+                                <div class="glass-shine bg-gradient-to-b from-rose via-rose to-rose-dark text-white rounded-2xl py-3.5 sm:py-4 px-2 shadow-[0_10px_22px_-6px_rgba(181,107,126,0.55)] border border-gold/55">
+                                    <span id="days" class="block font-serif text-2xl sm:text-4xl font-bold tracking-tight drop-shadow-sm">00</span>
+                                    <span class="block text-[10px] sm:text-xs uppercase tracking-widest text-rose-light mt-1">Días</span>
+                                </div>
+                                <!-- Horas -->
+                                <div class="glass-shine bg-gradient-to-b from-rose via-rose to-rose-dark text-white rounded-2xl py-3.5 sm:py-4 px-2 shadow-[0_10px_22px_-6px_rgba(181,107,126,0.55)] border border-gold/55">
+                                    <span id="hours" class="block font-serif text-2xl sm:text-4xl font-bold tracking-tight drop-shadow-sm">00</span>
+                                    <span class="block text-[10px] sm:text-xs uppercase tracking-widest text-rose-light mt-1">Horas</span>
+                                </div>
+                                <!-- Minutos -->
+                                <div class="glass-shine bg-gradient-to-b from-rose via-rose to-rose-dark text-white rounded-2xl py-3.5 sm:py-4 px-2 shadow-[0_10px_22px_-6px_rgba(181,107,126,0.55)] border border-gold/55">
+                                    <span id="minutes" class="block font-serif text-2xl sm:text-4xl font-bold tracking-tight drop-shadow-sm">00</span>
+                                    <span class="block text-[10px] sm:text-xs uppercase tracking-widest text-rose-light mt-1">Min</span>
+                                </div>
+                                <!-- Segundos -->
+                                <div class="glass-shine bg-gradient-to-b from-rose-dark to-[#8E4B5D] text-white rounded-2xl py-3.5 sm:py-4 px-2 shadow-[0_10px_22px_-6px_rgba(197,160,89,0.5)] border border-gold">
+                                    <span id="seconds" class="block font-serif text-2xl sm:text-4xl font-bold text-gold-light tracking-tight drop-shadow-sm">00</span>
+                                    <span class="block text-[10px] sm:text-xs uppercase tracking-widest text-white/90 mt-1">Seg</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sección de Ubicación con Tarjeta Visual tipo Mapa Interactivo -->
+                        <div class="opacity-0 animate-fade-up delay-400 text-left">
+                            <div class="flex items-center justify-between mb-3 px-1">
+                                <div>
+                                    <p class="text-xs uppercase tracking-[0.25em] text-gold-dark font-semibold">Ubicación</p>
+                                    <h2 class="font-serif text-2xl sm:text-3xl font-bold text-rose-dark">En casa de mis padres</h2>
+                                </div>
+                                <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-rose-dark bg-rose-light px-3.5 py-1.5 rounded-full border border-gold/50 shadow-sm">
+                                    <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
+                                    Recepción
+                                </span>
+                            </div>
+
+                            <!-- Tarjeta de Mapa Clickeable -->
+                            <a id="map-card-link" href="https://maps.app.goo.gl/DouRW4DzV7v4uVGCA" target="_blank" rel="noopener noreferrer" 
+                               class="group block relative w-full h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-gold/55 hover:border-gold transition-all duration-300 shadow-[0_10px_28px_-8px_rgba(197,160,89,0.35)] hover:shadow-xl">
+                                
+                                <!-- Fondo estilizado de mapa vectorial -->
+                                <div class="absolute inset-0 map-pattern transition-transform duration-700 group-hover:scale-105"></div>
+                                
+                                <!-- Líneas decorativas simulando avenidas principales -->
+                                <svg class="absolute inset-0 w-full h-full opacity-45" viewBox="0 0 400 200" preserveAspectRatio="none">
+                                    <path d="M-10,150 Q120,130 220,90 T410,40" fill="none" stroke="#C5A059" stroke-width="6" />
+                                    <path d="M80,-10 L160,210" fill="none" stroke="#ffffff" stroke-width="8" />
+                                    <path d="M270,-10 L230,210" fill="none" stroke="#ffffff" stroke-width="6" />
+                                </svg>
+
+                                <!-- Pin Central Animado -->
+                                <div class="absolute inset-0 flex flex-col items-center justify-center pb-4">
+                                    <div class="relative flex items-center justify-center">
+                                        <span class="absolute w-12 h-12 rounded-full bg-gold/40 animate-pulse-ring"></span>
+                                        <div class="relative z-10 bg-rose-dark text-white p-3 rounded-full shadow-lg border-2 border-gold-light group-hover:bg-gold group-hover:scale-110 transition-all duration-300">
+                                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <span class="mt-2 bg-white/95 backdrop-blur-sm text-rose-dark text-xs font-semibold px-3.5 py-1 rounded-full shadow-sm border border-gold/50">
+                                        Casa de la Familia Solis
+                                    </span>
+                                </div>
+
+                                <!-- Barra inferior interactiva -->
+                                <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-rose-dark/95 via-rose-dark/80 to-transparent p-3 sm:p-4 flex items-center justify-between text-white">
+                                    <span class="text-xs sm:text-sm font-medium flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-gold-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                        </svg>
+                                        Toca el mapa para ver la ruta exacta
+                                    </span>
+                                    <span class="bg-white text-rose-dark group-hover:bg-gold group-hover:text-white transition-colors text-xs font-semibold px-3 py-1.5 rounded-lg shadow flex items-center gap-1">
+                                        Abrir en Google Maps
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
                 </div>
-
             </div>
         </div>
     </main>
 
     <!-- Pie de página discreto -->
-    <footer class="text-center py-6 px-4 text-xs text-charcoal/50">
-        <p class="font-serif italic text-sm text-rose-dark/90 mb-1">¡Será un honor contar con tu presencia!</p>
-        <p>Nataly Solis • 5 de Diciembre, 2026</p>
+    <footer class="text-center py-6 px-4 text-xs text-charcoal/55">
+        <p class="font-serif italic text-base text-rose-dark mb-1">¡Será un honor contar con su presencia!</p>
+        <p>Ing. Nataly Solis • 12 de Diciembre, 2026 • Invitación para 2 personas</p>
     </footer>
 
     <!-- Lógica JavaScript -->
     <script>
-        // Inicializar enlace de Google Maps desde CONFIG
         function updateLinks() {
             const mapLink = document.getElementById('map-card-link');
             mapLink.href = CONFIG.GOOGLE_MAPS_URL;
         }
 
-        // Lógica del Contador Regresivo
         function updateCountdown() {
             const now = new Date().getTime();
             const target = CONFIG.EVENT_DATE.getTime();
@@ -290,7 +398,7 @@
 
             if (distance <= 0) {
                 document.getElementById('countdown-container').innerHTML = `
-                    <div class="col-span-4 bg-rose text-white rounded-2xl py-4 px-4 shadow-md">
+                    <div class="col-span-4 bg-gradient-to-r from-rose-dark via-rose to-rose-dark text-white rounded-2xl py-4 px-4 shadow-md border border-gold">
                         <span class="font-serif text-2xl sm:text-3xl font-bold text-gold-light">¡Hoy es el gran día!</span>
                         <span class="block text-xs uppercase tracking-widest mt-1">Te esperamos a las 5:30 PM</span>
                     </div>
@@ -309,19 +417,17 @@
             document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
         }
 
-        // Efecto de confeti elegante en tonos dorado y rosa empolvado
         function launchConfetti() {
             if (typeof confetti === 'function') {
                 confetti({
-                    particleCount: 55,
-                    spread: 70,
+                    particleCount: 75,
+                    spread: 80,
                     origin: { y: 0.6 },
-                    colors: ['#C5A059', '#D48C9E', '#DFC794', '#FDF2F4']
+                    colors: ['#C5A059', '#D48C9E', '#DFC794', '#FDF2F4', '#B56B7E']
                 });
             }
         }
 
-        // Inicialización al cargar la página
         window.addEventListener('DOMContentLoaded', () => {
             updateLinks();
             updateCountdown();
